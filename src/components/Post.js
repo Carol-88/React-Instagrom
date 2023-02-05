@@ -1,13 +1,15 @@
 import React from "react";
-import Avatar from "./Avatar";
-import Comment from "./Comment";
+import FooterPost from "./FooterPost";
+import HeaderPost from "./HeaderPost";
+import ImgPost from "./ImgPost";
 
 function Post() {
 	return (
-		<div>
-			<Avatar />
-			<Comment />
-		</div>
+		<>
+			<HeaderPost />
+			<ImgPost />
+			<FooterPost />
+		</>
 	);
 }
 
