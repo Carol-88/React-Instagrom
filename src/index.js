@@ -31,6 +31,7 @@ root.render(
 		<TokenProvider>
 			<BrowserRouter>
 				<nav id="main-menu">
+					<h2>Instagrom</h2>
 					<NavLink to="/">Inicio</NavLink>
 					<NavLink to="register">Registro</NavLink>
 					<NavLink to="login">Login</NavLink>

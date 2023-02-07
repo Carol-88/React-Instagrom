@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+/* VERSION WEB */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100vh;
+	background-color: azure;
+	display: grid;
+	grid-template-areas: "sidebar header footer" "sidebar main footer" "sidebar main footer";
+	grid-template-columns: 300px auto 200px;
+	grid-template-rows: 100px auto;
+	padding: 1rem;
+	gap: 1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header {
+	display: grid;
+	text-align: center;
+	color: black;
+	grid-area: header;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header h1 {
+	padding-top: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+#main-menu {
+	grid-area: sidebar;
+	border-right: 1px solid grey;
+}
+#main-menu a {
+	display: grid;
+	grid-template-rows: 50px;
+	padding-left: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#main-menu h2 {
+	padding: 2rem;
+	text-align: center;
+}
+
+main {
+	text-align: center;
+	grid-area: main;
+}
+
+footer {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: 100px 1fr 1fr;
+	grid-template-areas: "avatar username" "info info" "insta-footer insta-footer";
+	text-align: center;
+	grid-area: footer;
+	padding-top: 1rem;
+}
+
+footer img {
+	grid-area: avatar;
+}
+
+footer .username {
+	grid-area: username;
+}
+
+footer .info {
+	display: grid;
+	grid-area: info;
+	align-items: end;
+}
+
+footer .insta-footer {
+	display: grid;
+	grid-area: insta-footer;
+	align-items: center;
 }
