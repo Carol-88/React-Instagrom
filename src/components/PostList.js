@@ -1,7 +1,7 @@
 import React from "react";
 
 function PostList() {
-	return <div>PostList</div>;
+	return <div>Hacer map de posts</div>;
 }
 
-export default PostList;
+export default PostList
