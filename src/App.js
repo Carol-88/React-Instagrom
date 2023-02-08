@@ -2,12 +2,18 @@ import "./App.css";
 import PostList from "./components/PostList";
 import Post from "./components/Post";
 import Avatar from "./components/Avatar";
+import Stories from "./components/Stories";
 
 function App() {
 	return (
 		<>
 			<header>
-				<h1>STORIES</h1>
+				<Stories />
+				<Stories />
+				<Stories />
+				<Stories />
+				<Stories />
+				<Stories />
 			</header>
 			<main>
 				<PostList />

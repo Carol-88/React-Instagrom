@@ -5,7 +5,11 @@ function Avatar() {
 		<>
 			{/* para que se vea algo */}
 
-			<img src="" alt="avatar" />
+			<img
+				className="avatar-img"
+				src="https://www.dzoom.org.es/wp-content/uploads/2013/04/retratos-fotograficos-6-810x540.jpg"
+				alt="avatar"
+			/>
 		</>
 	);
 }

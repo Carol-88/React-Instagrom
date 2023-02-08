@@ -9,10 +9,10 @@
 #root {
 	font-family: Arial, Helvetica, sans-serif;
 	min-height: 100vh;
-	background-color: azure;
+	background-color: white;
 	display: grid;
 	grid-template-areas: "sidebar header footer" "sidebar main footer" "sidebar main footer";
-	grid-template-columns: 300px auto 200px;
+	grid-template-columns: 250px auto 400px;
 	grid-template-rows: 100px auto;
 	padding: 1rem;
 	gap: 1px;
@@ -20,13 +20,13 @@
 
 header {
 	display: grid;
+	grid-template-columns: repeat(6, 50px);
+	justify-content: center;
+	gap: 2rem;
 	text-align: center;
 	color: black;
 	grid-area: header;
-}
-
-header h1 {
-	padding-top: 1rem;
+	padding-top: 2rem;
 }
 
 #main-menu {
@@ -47,6 +47,7 @@ header h1 {
 main {
 	text-align: center;
 	grid-area: main;
+	padding-top: 2rem;
 }
 
 footer {
@@ -77,4 +78,18 @@ footer .insta-footer {
 	display: grid;
 	grid-area: insta-footer;
 	align-items: center;
+}
+
+.avatar-img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+.storie-img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 1px solid black;
 }
