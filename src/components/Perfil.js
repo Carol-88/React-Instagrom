@@ -6,7 +6,6 @@ const Perfil = ({ img, name }) => {
 	return (
 		<article class="user">
 			<Avatar img={img} name={name} />
-
 			<UserName name={name} />
 		</article>
 	);

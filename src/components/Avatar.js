@@ -1,15 +1,11 @@
 import React from "react";
 
-function Avatar() {
+function Avatar(img, name) {
 	return (
 		<>
 			{/* para que se vea algo */}
 
-			<img
-				className="avatar-img"
-				src="https://www.dzoom.org.es/wp-content/uploads/2013/04/retratos-fotograficos-6-810x540.jpg"
-				alt="avatar"
-			/>
+			<img className="avatar-img" src={img} alt={name} />
 		</>
 	);
 }

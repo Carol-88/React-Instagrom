@@ -1,12 +1,14 @@
 import React from "react";
 import Avatar from "./Avatar";
+import UserName from "./UserName";
+import PostDate from "./PostDate";
 
-function HeaderPost() {
+function HeaderPost({ name, date }) {
 	return (
 		<>
 			<Avatar />
-			<h3>username</h3>
-			<p>postDate</p>
+			<UserName name={name} />
+			<PostDate date={date} />
 		</>
 	);
 }
