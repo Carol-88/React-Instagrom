@@ -1,18 +1,15 @@
 import React from "react";
 import Avatar from "./Avatar";
-import PostList from "./PostList";
+import UserName from "./UserName";
 
-function Perfil() {
+const Perfil = ({ img, name }) => {
 	return (
-		<div>
-			<Avatar />
-			<h3>Username</h3>
-			<h4>Email</h4>
-			<ul>
-				<PostList />
-			</ul>
-		</div>
+		<article class="user">
+			<Avatar img={img} name={name} />
+
+			<UserName name={name} />
+		</article>
 	);
-}
+};
 
 export default Perfil;

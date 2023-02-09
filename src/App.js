@@ -3,6 +3,8 @@ import PostList from "./components/PostList";
 import Post from "./components/Post";
 import Avatar from "./components/Avatar";
 import Stories from "./components/Stories";
+import UserName from "./components/UserName";
+import PostForm from "./components/PostForm";
 
 function App() {
 	return (
@@ -16,7 +18,12 @@ function App() {
 				<Stories />
 			</header>
 			<main>
+				<button className="add-post">
+					Publica <PostForm />
+				</button>
+
 				<PostList />
+
 				<p>
 					Post de prueba
 					<Post />
@@ -24,7 +31,7 @@ function App() {
 			</main>
 			<footer>
 				<Avatar />
-				<p className="username">username</p>
+				<UserName />
 				<p className="info">
 					Información - Ayuda - Prensa - API - Empleo - Privacidad - Condiciones
 					- Ubicaciones - Idioma

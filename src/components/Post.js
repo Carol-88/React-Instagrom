@@ -9,7 +9,6 @@ function Post() {
 		<>
 			<HeaderPost />
 			<ImgPost />
-			{/* <PostForm /> NO VA AQUI, esto es para publicar un post */}
 			<FooterPost />
 		</>
 	);
