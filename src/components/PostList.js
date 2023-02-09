@@ -3,7 +3,7 @@ import Post from "./Post";
 const PostList = ({ posts }) => {
 	return (
 		<ul className="postList">
-			{/* {posts.map((post) => { ENLAZAR A NUESTRO SERVER */}
+			{/* {posts.map((post) => { ########CAMBIAR EN EL SERVER EL NOMBRE DE LA TABLA PHOTO POR POST Y ENLAZAR */}
 				const {
 					name: { title, first, last },
 					location: {
