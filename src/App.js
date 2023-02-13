@@ -36,7 +36,7 @@ function App() {
 					Información - Ayuda - Prensa - API - Empleo - Privacidad - Condiciones
 					- Ubicaciones - Idioma
 				</p>
-				<p className="insta-footer"> @ 2023 INSTAGROM FROM CAROLINA $ MARTA</p>
+				<p className="insta-footer"> ©2023 INSTAGROM FROM CAROLINA & MARTA</p>
 			</footer>
 		</>
 	);
