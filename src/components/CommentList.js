@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function CommentList() {
-  return (
-    <div>Hacer map de comentarios</div>
-  )
+  return <div>Hacer map de comentarios</div>;
 }
 
-export default CommentList
+export default CommentList;

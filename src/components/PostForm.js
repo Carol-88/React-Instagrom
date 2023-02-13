@@ -1,49 +1,49 @@
 import React, { useState } from "react";
 import Avatar from "./Avatar";
 
-// ###REVISAR###
-
 function PostForm() {
-	const [newPost, setNewPost] = useState("");
+  const [newPost, setNewPost] = useState("");
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-		const addPost = {
-			text: newPost,
-		};
+    const addPost = {
+      caption: "caption",
+      idUser: 1,
+    };
 
-		const serializedData = JSON.stringify(addPost);
-		const res = await fetch("http://localhost:3050/login", {
-			//cambiar a nuestro servidor
-			method: "POST",
-			body: serializedData,
-			headers: {
-				"Content-type": "application/json",
-			},
-		});
+    console.log("pasa por aquí");
 
-		const responseBody = await res.json();
-		const textPost = responseBody;
-		setNewPost(textPost);
-	};
+    const serializedData = JSON.stringify(addPost);
+    const res = await fetch("http://localhost:4000/addPhoto", {
+      method: "POST",
+      body: serializedData,
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
 
-	return (
-		<>
-			<Avatar />
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="text-post"></label>
-				<input
-					id="text-post"
-					onChange={(e) => setNewPost(e.target.value)}
-					type="text"
-					placeholder="Escribe.."
-				></input>
-				{/* FALTA FILE PARA SUBIR FOTO */}
-				<button type="submit">Enviar</button>
-			</form>
-		</>
-	);
+    const responseBody = await res.json();
+    const textPost = responseBody;
+    setNewPost(textPost);
+  };
+
+  return (
+    <>
+      <Avatar />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="text-post"></label>
+        <input
+          id="text-post"
+          onChange={(e) => setNewPost(e.target.value)}
+          type="text"
+          placeholder="Escribe.."
+        ></input>
+        {/* FALTA FILE PARA SUBIR FOTO */}
+        <button type="submit">Enviar</button>
+      </form>
+    </>
+  );
 }
 
 export default PostForm;

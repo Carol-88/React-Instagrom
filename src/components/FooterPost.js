@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import UserName from "./UserName";
 
 function FooterPost({ location, caption, publication_Date }) {
+  const [showComents, setShowComents] = useState(false);
   return (
     <>
       <img src="/public/like.png" alt="like" />
@@ -16,9 +17,15 @@ function FooterPost({ location, caption, publication_Date }) {
         <UserName /> {caption}
       </p>
       <p> {publication_Date}</p>
-      <button>
-        Ver comentarios <CommentList />
+      <button
+        onClick={() => {
+          setShowComents(!showComents);
+        }}
+      >
+        Ver comentarios
       </button>
+
+      {showComents && <CommentList />}
       <p>
         <CommentForm />
       </p>

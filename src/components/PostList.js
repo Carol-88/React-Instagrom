@@ -3,7 +3,7 @@ import Post from "./Post";
 const PostList = ({ photo }) => {
   return (
     <ul className="postList">
-      {photo.map((post) => {
+      {/* {photo.map((post) => {
         const {
           name: { photoName },
           location: { location },
@@ -11,7 +11,7 @@ const PostList = ({ photo }) => {
         } = post;
 
         return (
-          <li key={id}>
+          <li >
             <Post
               img={imgPost}
               name={photoName}
@@ -21,7 +21,7 @@ const PostList = ({ photo }) => {
           </li>
         );
       })}
-      ;
+      ; */}
     </ul>
   );
 };
