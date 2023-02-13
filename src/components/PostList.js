@@ -1,32 +1,29 @@
 import Post from "./Post";
 
-const PostList = ({ posts }) => {
-	return (
-		<ul className="postList">
-			{/* {posts.map((post) => { ########CAMBIAR EN EL SERVER EL NOMBRE DE LA TABLA PHOTO POR POST Y ENLAZAR */}
-				const {
-					name: { title, first, last },
-					location: {
-						city,
-						country,
-						street: { number: portalNumber, name: street },
-					},
-					picture: { large: img },
-					login: { uuid: id },
-					dob: { age },
-				} = post;
+const PostList = ({ photo }) => {
+  return (
+    <ul className="postList">
+      {photo.map((post) => {
+        const {
+          name: { photoName },
+          location: { location },
+          caption: { caption },
+        } = post;
 
-				const fullName = `${title} ${first} ${last}`;
-				const address = `${street} ${portalNumber}, ${city} (${country})`;
-
-				return (
-					<li key={id}>
-						<Post img={img} name={fullName} address={address} age={age} />
-					</li>
-				);
-			})}
-		</ul>
-	);
+        return (
+          <li key={id}>
+            <Post
+              img={imgPost}
+              name={photoName}
+              location={location}
+              caption={caption}
+            />
+          </li>
+        );
+      })}
+      ;
+    </ul>
+  );
 };
 
 export default PostList;

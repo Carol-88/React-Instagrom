@@ -1,16 +1,16 @@
 import React from "react";
 import FooterPost from "./FooterPost";
 import HeaderPost from "./HeaderPost";
-import ImgPost from "./ImgPost";
+import ContentPost from "./ContentPost";
 
 function Post() {
-	return (
-		<>
-			<HeaderPost />
-			<ImgPost />
-			<FooterPost />
-		</>
-	);
+  return (
+    <>
+      <HeaderPost />
+      <ContentPost />
+      <FooterPost />
+    </>
+  );
 }
 
 export default Post;
