@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { TokenContext } from "..";
+// import { Navigate } from "react-router-dom";
+// import { TokenContext } from "..";
 
 function RegisterForm() {
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const [token, setToken] = useContext(TokenContext);
+	// const [token, setToken] = useContext(TokenContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -18,8 +18,8 @@ function RegisterForm() {
 		};
 
 		const serializedData = JSON.stringify(registerUser);
-		// cambiar a nuestro server
-		const res = await fetch("http://localhost:3050/register", {
+
+		const res = await fetch("http://localhost:4001/register", {
 			method: "POST",
 			body: serializedData,
 			headers: {
@@ -29,7 +29,7 @@ function RegisterForm() {
 
 		const responseBody = await res.json();
 		const token = responseBody.accessToken;
-		setToken(token);
+		// setToken(token);
 		setUsername("");
 		setEmail("");
 		setPassword("");
