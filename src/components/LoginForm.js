@@ -37,11 +37,9 @@ function LoginForm() {
 		setPassword(e.target.value);
 	};
 
-	//   if (!token) {
-	//     return <Navigate to="/login" />;
-	//   } else {
-	//     <Navigate to="/" />;
-	//   }
+	if (token) {
+		<Navigate to="/" />;
+	}
 
 	return (
 		<div style={{ border: "1px solid black" }}>

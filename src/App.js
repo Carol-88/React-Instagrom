@@ -18,9 +18,9 @@ function App() {
 				<Stories />
 			</header>
 			<main>
-				<button className="add-post">
+				<p className="add-post">
 					Publica <PostForm />
-				</button>
+				</p>
 
 				<PostList />
 
