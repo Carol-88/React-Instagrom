@@ -16,7 +16,7 @@ function LoginForm() {
     };
 
     const serializedData = JSON.stringify(registerUser);
-    const res = await fetch("http://localhost:4000/login", {
+    const res = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
       method: "POST",
       body: serializedData,
       headers: {

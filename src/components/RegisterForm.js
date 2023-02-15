@@ -19,7 +19,7 @@ function RegisterForm() {
 
     const serializedData = JSON.stringify(registerUser);
     // cambiar a nuestro server
-    const res = await fetch("http://localhost:3050/register", {
+    const res = await fetch(`${process.env.REACT_APP_BACKEND}/register`, {
       method: "POST",
       body: serializedData,
       headers: {

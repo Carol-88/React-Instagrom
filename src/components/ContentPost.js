@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function ContentPost({ photoName, photo }) {
   const [photos, setPhotos] = useState([]);
   const loadPhotos = async () => {
-    const r = await fetch("http://localhost:4000/photos");
+    const r = await fetch(`${process.env.REACT_APP_BACKEND}/photos`);
     const body = await r.json();
     console.log("body", body);
     setPhotos(body.data);
@@ -15,7 +15,9 @@ function ContentPost({ photoName, photo }) {
   return (
     <div style={{ border: "1px solid red" }}>
       {photos.map((photo) => (
-        <img src={`http://localhost:4000/photos/${photo.photoName}`} />
+        <img
+          src={`${process.env.REACT_APP_BACKEND}/photos/${photo.photoName}`}
+        />
       ))}
     </div>
   );
