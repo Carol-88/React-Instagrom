@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { TokenContext } from "..";
+// import { Navigate } from "react-router-dom";
+// import { TokenContext } from "..";
 
 function RegisterForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useContext(TokenContext);
+  // const [token, setToken] = useContext(TokenContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,9 +27,17 @@ function RegisterForm() {
       },
     });
 
+    const res = await fetch("http://localhost:4001/register", {
+      method: "POST",
+      body: serializedData,
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
     const responseBody = await res.json();
     const token = responseBody.accessToken;
-    setToken(token);
+    // setToken(token);
     setUsername("");
     setEmail("");
     setPassword("");
@@ -54,6 +62,7 @@ function RegisterForm() {
           value={username}
           required={true}
         ></input>
+
         <label htmlFor="emailform">Email: </label>
         <input
           id="emailform"
@@ -63,6 +72,7 @@ function RegisterForm() {
           value={email}
           required={true}
         ></input>
+
         <label htmlFor="password">Contraseña: </label>
         <input
           id="password"
@@ -71,6 +81,7 @@ function RegisterForm() {
           value={password}
           required={true}
         ></input>
+
         <button type="submit">Enviar</button>
       </form>
     </div>
