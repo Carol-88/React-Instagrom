@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Avatar from "./Avatar";
 
-function PostForm(photoName, caption, idUser) {
+function PostForm(photoName, caption, location) {
 	const [newPost, setNewPost] = useState("");
 
 	const handleSubmit = async (e) => {
@@ -10,13 +10,13 @@ function PostForm(photoName, caption, idUser) {
 		const addPost = {
 			photoname: { photoName },
 			caption: { caption },
-			idUser: { idUser },
+			location: { location },
 		};
 
 		console.log("pasa por aquí");
 
 		const serializedData = JSON.stringify(addPost);
-		const res = await fetch("http://localhost:4001/addPhoto", {
+		const res = await fetch(`${process.env.REACT_APP_BACKEND}/addPhoto`, {
 			method: "POST",
 			body: serializedData,
 			headers: {
@@ -40,11 +40,18 @@ function PostForm(photoName, caption, idUser) {
 					type="text"
 					placeholder="Escribe.."
 				></input>
+				<label htmlFor="location"></label>
+				<input
+					id="location"
+					onChange={(e) => setNewPost(e.target.value)}
+					type="text"
+					placeholder="Localización"
+				></input>
 				<label htmlFor="photo-post">Subir archivo</label>
 				<input
 					type="file"
 					id="photo-post"
-					accept="image/png, image/jpeg"
+					accept="image/png, image/jpg"
 				></input>
 				<button type="submit">Enviar</button>
 			</form>
