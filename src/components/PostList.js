@@ -1,9 +1,9 @@
 import Post from "./Post";
 
-const PostList = ({ photo }) => {
+const PostList = ({ photos }) => {
 	return (
 		<ul className="postList">
-			{photo.map((post) => {
+			{photos?.map((post) => {
 				const {
 					name: { photoName },
 					location: { location },
