@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Avatar from "./Avatar";
 
-function PostForm(photoName, caption) {
+function PostForm(photoName, caption, idUser) {
 	const [newPost, setNewPost] = useState("");
 
 	const handleSubmit = async (e) => {
@@ -10,7 +10,7 @@ function PostForm(photoName, caption) {
 		const addPost = {
 			photoname: { photoName },
 			caption: { caption },
-			idUser: 1,
+			idUser: { idUser },
 		};
 
 		console.log("pasa por aquí");
