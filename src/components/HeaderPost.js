@@ -6,7 +6,7 @@ import PostDate from "./PostDate";
 function HeaderPost({ name, date }) {
 	return (
 		<>
-			<Avatar />
+			<Avatar img="/stories/456328.png" />
 			<UserName name={name} />
 			<PostDate date={date} />
 		</>

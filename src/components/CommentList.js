@@ -1,7 +1,18 @@
-import React from "react";
+import Comment from "./Comment";
 
-function CommentList() {
-  return <div>Hacer map de comentarios</div>;
-}
+const CommentList = ({ comments }) => {
+	console.log("FOTOS", comments);
+	return (
+		<ul className="commentList">
+			{comments?.map((comment) => {
+				return (
+					<li key={comment.id}>
+						<Comment body={comment.body} />
+					</li>
+				);
+			})}
+		</ul>
+	);
+};
 
 export default CommentList;

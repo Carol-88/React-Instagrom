@@ -1,26 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { TokenContext } from "..";
+import Avatar from "./Avatar";
 
-function CommentForm({ username, comment }) {
-	const [comments, setComments] = useState([]);
-	const loadComments = async () => {
-		const r = await fetch(`${process.env.REACT_APP_BACKEND}/comments`);
-		const body = await r.json();
-		console.log("body", body);
-		setComments(body.data);
+function CommentForm() {
+	const [comment, setComment] = useState("");
+	const [token, setToken] = useContext(TokenContext);
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const addComment = {
+			text: comment,
+		};
+
+		console.log("pasa por aquí");
+
+		const serializedData = JSON.stringify(addComment);
+		const res = await fetch(`${process.env.REACT_APP_BACKEND}/addComment`, {
+			method: "POST",
+			body: serializedData,
+			headers: {
+				"Content-type": "application/json",
+			},
+		});
+
+		const responseBody = await res.json();
+		const token = responseBody;
+		setToken(token);
+		setComment("");
 	};
-	useEffect(() => {
-		loadComments();
-	}, []);
-	console.log("Comentarios", comments);
+
+	if (!token) {
+		return <Navigate to="/login" />;
+	}
+
 	return (
-		<div style={{ border: "1px solid red" }}>
-			{comments?.map((comment) => (
-				<p>
-					src={`${process.env.REACT_APP_BACKEND}/static/photos/${comment}`}
-					alt=""
-				</p>
-			))}
-		</div>
+		<>
+			<Avatar img="/stories/456330.png" />
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="comment-post"></label>
+				<input
+					id="comment-post"
+					onChange={(e) => setComment(e.target.value)}
+					type="text"
+					placeholder="Escribe tu comentario.."
+				></input>
+				<button type="submit">Enviar</button>
+			</form>
+		</>
 	);
 }
 

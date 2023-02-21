@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-// import { Navigate } from "react-router-dom";
-// import { TokenContext } from "..";
+import { Navigate } from "react-router-dom";
+import { TokenContext } from "..";
 
 function RegisterForm() {
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	// const [token, setToken] = useContext(TokenContext);
+	const [token, setToken] = useContext(TokenContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -29,17 +29,17 @@ function RegisterForm() {
 
 		const responseBody = await res.json();
 		const token = responseBody.accessToken;
-		// setToken(token);
+		setToken(token);
 		setUsername("");
 		setEmail("");
 		setPassword("");
 	};
 
-	// if (!token) {
-	// 	return <Navigate to="/login" />;
-	// } else {
-	// 	<Navigate to="/" />;
-	// }
+	if (!token) {
+		return <Navigate to="/login" />;
+	} else {
+		<Navigate to="/" />;
+	}
 
 	return (
 		<div style={{ border: "1px solid black" }}>

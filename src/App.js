@@ -1,36 +1,38 @@
 import "./App.css";
 import PostList from "./components/PostList";
-import Post from "./components/Post";
+// import Post from "./components/Post";
 import Avatar from "./components/Avatar";
 import Stories from "./components/Stories";
 import UserName from "./components/UserName";
-import PostForm from "./components/PostForm";
+import { useEffect, useState } from "react";
+
+// import PostForm from "./components/PostForm";
 
 function App() {
+	const [photos, setPhotos] = useState([]);
+
+	const getPhotos = async () => {
+		const res = await fetch(`${process.env.REACT_APP_BACKEND}/photos`);
+		const responseBody = await res.json();
+		console.log("RESPONSE BODY", responseBody.data);
+		setPhotos(responseBody.data);
+	};
+
+	useEffect(() => {
+		const photosFromServer = getPhotos();
+		console.log("FOTOS SERVIDOR", photosFromServer);
+	}, []);
+
 	return (
 		<>
 			<header>
-				<Stories src="/public/stories/456317.jpg" />
-				<Stories src="/public/stories/456318.jpg" />
-				<Stories src="/public/stories/456319.jpg" />
-				<Stories src="/public/stories/456320.jpg" />
-				<Stories src="/public/stories/456321.jpg" />
-				<Stories src="/public/stories/456322.jpg" />
+				<Stories />
 			</header>
 			<main>
-				<button className="add-post">
-					Publica <PostForm />
-				</button>
-
-				<PostList />
-
-				<p>
-					Post de prueba
-					<Post />
-				</p>
+				<PostList photos={photos} />
 			</main>
 			<footer>
-				<Avatar />
+				<Avatar img="/stories/456328.png" />
 				<UserName />
 				<p className="info">
 					Información - Ayuda - Prensa - API - Empleo - Privacidad - Condiciones

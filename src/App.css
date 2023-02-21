@@ -1,4 +1,8 @@
 /* VERSION WEB */
+@font-face {
+	font-family: instagram;
+	src: url(./fonts/instafont.ttf);
+}
 
 * {
 	margin: 0;
@@ -42,6 +46,7 @@ header {
 #main-menu h2 {
 	padding: 2rem;
 	text-align: center;
+	font-family: "instagram";
 }
 
 main {

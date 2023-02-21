@@ -1,22 +1,20 @@
 import Post from "./Post";
 
 const PostList = ({ photos }) => {
+	console.log("FOTOS", photos);
 	return (
 		<ul className="postList">
-			{photos?.map((post) => {
-				const {
-					name: { photoName },
-					location: { location },
-					caption: { caption },
-				} = post;
-
+			{photos?.map((photo) => {
 				return (
-					<li>
-						<Post name={photoName} location={location} caption={caption} />
+					<li key={photo.photoName}>
+						<Post
+							name={photo.photoName}
+							location={photo.location}
+							caption={photo.caption}
+						/>
 					</li>
 				);
 			})}
-			;
 		</ul>
 	);
 };
