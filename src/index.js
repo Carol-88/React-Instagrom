@@ -11,7 +11,6 @@ import Perfil from "./components/Perfil";
 import PostList from "./components/PostList";
 import CommentForm from "./components/CommentForm";
 import useLocalStorage from "./hooks/useLocalStorage";
-import "./fonts/instafont.ttf";
 
 //Contexto de usuario logueado
 export const TokenContext = React.createContext();
