@@ -85,6 +85,12 @@ footer .insta-footer {
 	align-items: center;
 }
 
+.footer-icons {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
 .avatar-img {
 	width: 70px;
 	height: 70px;

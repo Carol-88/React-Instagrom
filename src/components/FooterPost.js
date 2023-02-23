@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
+import FooterIcons from "./FooterIcons";
 import UserName from "./UserName";
 
 function FooterPost({ location, caption, publication_Date }) {
 	const [showComents, setShowComents] = useState(false);
 	return (
 		<>
-			<img className="icon" src="/icons/corazon.png" alt="like" />
-			<img className="icon" src="/icons/comentario.png" alt="comment" />
-			<img className="icon" src="/icons/compartir.png" alt="share" />
-			<img className="icon" src="/icons/marcador.png" alt="keep-post" />
+			<FooterIcons />
+
 			<p>Numero de likes</p>
 			<p> {location} </p>
 			<p>
