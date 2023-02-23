@@ -11,6 +11,7 @@ import Perfil from "./components/Perfil";
 import PostList from "./components/PostList";
 import CommentForm from "./components/CommentForm";
 import useLocalStorage from "./hooks/useLocalStorage";
+import PostForm from "./components/PostForm";
 
 //Contexto de usuario logueado
 export const TokenContext = React.createContext();
@@ -36,6 +37,7 @@ root.render(
 					<NavLink to="register">Registro</NavLink>
 					<NavLink to="login">Login</NavLink>
 					<NavLink to="perfil">Perfil</NavLink>
+					<NavLink to="create">Crear</NavLink>
 				</nav>
 				<Routes>
 					<Route path="/" element={<App />} />
@@ -44,6 +46,7 @@ root.render(
 					<Route path="/perfil" element={<Perfil />} />
 					<Route path="postlist" element={<PostList />} />
 					<Route path="comment" element={<CommentForm />} />
+					<Route path="create" element={<PostForm />} />
 				</Routes>
 			</BrowserRouter>
 		</TokenProvider>
