@@ -8,14 +8,17 @@ function Stories() {
 		{ img: "/stories/456324.png" },
 		{ img: "/stories/456325.png" },
 		{ img: "/stories/456326.png" },
+		{ img: "/stories/456327.png" },
+		{ img: "/stories/456328.png" },
+		{ img: "/stories/456329.png" },
 	];
 
 	return (
-		<>
+		<div className="stories">
 			{storiesFromBack.map((storie) => {
 				return <img className="storie-img" src={storie.img} alt="storie" />;
 			})}
-		</>
+		</div>
 	);
 }
 
