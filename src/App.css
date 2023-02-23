@@ -101,8 +101,22 @@ footer .insta-footer {
 .storie-img {
 	width: 70px;
 	height: 70px;
-	border: 5px solid transparent;
-	border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;
+	/* border-radius: 50%; */
+	border: double 8px white;
+	border-radius: 50px;
+	background-image: linear-gradient(white, white),
+		linear-gradient(
+			to right,
+			gold,
+			rgb(255, 102, 0),
+			rgb(255, 72, 0),
+			rgb(249, 56, 169),
+			rgb(176, 6, 176)
+		);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+
+	/* border-image-radius: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1; */
 }
 
 .add-post {
