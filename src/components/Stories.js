@@ -7,6 +7,7 @@ function Stories() {
 		{ img: "/stories/456323.png" },
 		{ img: "/stories/456324.png" },
 		{ img: "/stories/456325.png" },
+		{ img: "/stories/456326.png" },
 	];
 
 	return (

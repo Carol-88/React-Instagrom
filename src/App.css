@@ -24,11 +24,9 @@
 
 header {
 	display: grid;
-	grid-template-columns: repeat(6, 50px);
-	justify-content: center;
-	gap: 2rem;
-	text-align: center;
-	color: black;
+	grid-template-columns: repeat(6, 70px);
+
+	justify-content: end;
 	grid-area: header;
 	padding-top: 2rem;
 }
@@ -50,9 +48,18 @@ header {
 }
 
 main {
+	display: flex;
 	text-align: center;
-	grid-area: main;
+	/* grid-area: main; */
 	padding-top: 2rem;
+	justify-content: end;
+}
+
+ul {
+	width: 70%;
+	list-style-type: none;
+	align-items: center;
+	justify-content: end;
 }
 
 footer {
@@ -62,7 +69,8 @@ footer {
 	grid-template-areas: "avatar username" "info info" "insta-footer insta-footer";
 	text-align: center;
 	grid-area: footer;
-	padding-top: 1rem;
+	padding-top: 2rem;
+	padding-left: 5rem;
 }
 
 footer img {
@@ -85,10 +93,29 @@ footer .insta-footer {
 	align-items: center;
 }
 
+.icon {
+	height: 20px;
+	margin-top: 1rem;
+}
+
 .footer-icons {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	display: flex;
 	gap: 1rem;
+}
+.footer-icons-img .icon {
+	margin-right: 1rem;
+}
+
+.footer-icons-img {
+	width: 50%;
+	text-align: left;
+	margin-right: 1rem;
+}
+
+.icon-last {
+	/* height: 20px; */
+	width: 50%;
+	text-align: right;
 }
 
 .avatar-img {
@@ -121,9 +148,4 @@ footer .insta-footer {
 
 .add-post {
 	border: 1px solid green;
-}
-
-.icon {
-	width: 20px;
-	height: 20px;
 }
