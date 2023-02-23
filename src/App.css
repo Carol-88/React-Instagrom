@@ -57,7 +57,7 @@ main {
 
 footer {
 	display: grid;
-	grid-template-columns: 100px 100px;
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 100px 1fr 1fr;
 	grid-template-areas: "avatar username" "info info" "insta-footer insta-footer";
 	text-align: center;
@@ -76,7 +76,7 @@ footer .username {
 footer .info {
 	display: grid;
 	grid-area: info;
-	align-items: end;
+	align-items: center;
 }
 
 footer .insta-footer {
@@ -95,10 +95,15 @@ footer .insta-footer {
 .storie-img {
 	width: 70px;
 	height: 70px;
-	border-radius: 50%;
-	border: 1px solid black;
+	border: 5px solid transparent;
+	border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;
 }
 
 .add-post {
 	border: 1px solid green;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
 }

@@ -32,7 +32,7 @@ root.render(
 			<BrowserRouter>
 				<nav id="main-menu">
 					<h2>Instagrom</h2>
-					<NavLink to="/">Inicio</NavLink>
+					<NavLink to="/"> Inicio</NavLink>
 					<NavLink to="register">Registro</NavLink>
 					<NavLink to="login">Login</NavLink>
 					<NavLink to="perfil">Perfil</NavLink>
