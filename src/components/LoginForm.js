@@ -3,75 +3,77 @@ import { Navigate, NavLink } from "react-router-dom";
 import { TokenContext } from "..";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [token, setToken] = useContext(TokenContext);
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [token, setToken] = useContext(TokenContext);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 
-    const registerUser = {
-      email: email,
-      password: password,
-    };
+		const registerUser = {
+			email: email,
+			password: password,
+		};
 
-    const serializedData = JSON.stringify(registerUser);
-    const res = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
-      method: "POST",
-      body: serializedData,
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+		const serializedData = JSON.stringify(registerUser);
+		const res = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
+			method: "POST",
+			body: serializedData,
+			headers: {
+				"Content-type": "application/json",
+			},
+		});
 
-    const responseBody = await res.json();
-    console.log("responseBody", responseBody);
-    const token = responseBody.accessToken;
+		const responseBody = await res.json();
+		console.log("responseBody", responseBody);
+		const token = responseBody.authToken;
 
-    setToken(token);
-    setEmail("");
-    setPassword("");
-  };
+		setToken(token);
+		setEmail("");
+		setPassword("");
 
-  const handleChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
+		//TODO: falta un navigate
+	};
 
-  if (token) {
-    <Navigate to="/" />;
-  }
+	const handleChangePassword = (e) => {
+		setPassword(e.target.value);
+	};
 
-  return (
-    <div style={{ border: "1px solid black" }}>
-      <h2>Login</h2>
+	if (token) {
+		<Navigate to="/" />;
+	}
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="emailform">Email: </label>
-        <input
-          id="emailform"
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Escribe tu email"
-          value={email}
-          required={true}
-        ></input>
+	return (
+		<div style={{ border: "1px solid black" }}>
+			<h2>Login</h2>
 
-        <label htmlFor="password">Contraseña: </label>
-        <input
-          id="password"
-          onChange={handleChangePassword}
-          type="password"
-          value={password}
-          required={true}
-        ></input>
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="emailform">Email: </label>
+				<input
+					id="emailform"
+					onChange={(e) => setEmail(e.target.value)}
+					type="email"
+					placeholder="Escribe tu email"
+					value={email}
+					required={true}
+				></input>
 
-        <button type="submit">Enviar</button>
-      </form>
-      <p>
-        <NavLink to="/register">Registrate</NavLink>
-      </p>
-    </div>
-  );
+				<label htmlFor="password">Contraseña: </label>
+				<input
+					id="password"
+					onChange={handleChangePassword}
+					type="password"
+					value={password}
+					required={true}
+				></input>
+
+				<button type="submit">Enviar</button>
+			</form>
+			<p>
+				<NavLink to="/register">Registrate</NavLink>
+			</p>
+		</div>
+	);
 }
 
 export default LoginForm;
