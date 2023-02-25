@@ -3,6 +3,7 @@ import Avatar from "./Avatar";
 
 function PostForm(photoName, caption, location) {
 	const [newPost, setNewPost] = useState("");
+	const [token] = useContext(TokenContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -21,6 +22,7 @@ function PostForm(photoName, caption, location) {
 			body: serializedData,
 			headers: {
 				"Content-type": "application/json",
+				Authorization: token;
 			},
 		});
 
