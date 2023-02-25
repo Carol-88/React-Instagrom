@@ -6,9 +6,9 @@ import ContentPost from "./ContentPost";
 function Post({ name, location, caption }) {
 	return (
 		<>
-			{/* <HeaderPost /> */}
+			<HeaderPost />
 			<ContentPost name={name} location={location} caption={caption} />
-			{/* <FooterPost /> */}
+			<FooterPost />
 		</>
 	);
 }
