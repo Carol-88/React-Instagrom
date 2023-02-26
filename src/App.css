@@ -155,3 +155,8 @@ footer .insta-footer {
 .add-post {
 	border: 1px solid green;
 }
+
+.photo-post {
+	width: 400px;
+	height: 600px;
+}

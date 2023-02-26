@@ -5,6 +5,7 @@ function ContentPost({ name, location, caption }) {
 		<div style={{ border: "1px solid red" }}>
 			<figure>
 				<img
+					className="photo-post"
 					src={`${process.env.REACT_APP_BACKEND}/photos/${name}`}
 					alt={caption}
 				/>

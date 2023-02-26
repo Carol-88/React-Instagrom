@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TokenContext } from "..";
 import Avatar from "./Avatar";
 
-function PostForm(photoName, caption, location) {
+function PostForm({ name, caption, location }) {
 	const [newPost, setNewPost] = useState("");
 	const [token] = useContext(TokenContext);
 
@@ -9,7 +10,7 @@ function PostForm(photoName, caption, location) {
 		e.preventDefault();
 
 		const addPost = {
-			photoname: { photoName },
+			photoname: { name },
 			caption: { caption },
 			location: { location },
 		};
@@ -22,7 +23,7 @@ function PostForm(photoName, caption, location) {
 			body: serializedData,
 			headers: {
 				"Content-type": "application/json",
-				Authorization: token;
+				Authorization: token,
 			},
 		});
 
