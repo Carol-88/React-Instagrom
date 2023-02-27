@@ -36,13 +36,11 @@ const TokenProvider = (props) => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* en nuestro instagrom un usuario sin loguear ni 
-		registrar puede ver el contenido, pero no interactuar */}
     <TokenProvider>
       <BrowserRouter>
         <nav id="main-menu">
           <h2>Instagrom</h2>
-          <NavLink to="inicio"> Inicio</NavLink>
+          <NavLink to="inicio">Inicio</NavLink>
           <NavLink to="newUser">Registro</NavLink>
           <NavLink to="login">Login</NavLink>
           <NavLink to="perfil">Perfil</NavLink>
@@ -66,31 +64,27 @@ root.render(
 
 ///////// Simulación de "Logout" ////////////
 
-// root.render(
+// const rootTwo = ReactDOM.createRoot(document.getElementById("rootTwo"));
+// rootTwo.render(
 //   <React.StrictMode>
-//     <TokenProvider>
-//       <BrowserRouter>
-//         <nav id="main-menu">
-//           <h2>Instagrom</h2>
-//           <NavLink to="inicio">Inicio</NavLink>
-//           <NavLink to="perfil">Perfil</NavLink>
-//           <NavLink to="create">Crear</NavLink>
-//           <NavLink to="logout">Logout</NavLink>
-//         </nav>
-//         <Routes>
-//           <Route path="/inicio" element={<App />} />
-//           <Route path="/perfil" element={<Perfil />} />
-//           <Route path="postlist" element={<PostList />} />
-//           <Route path="comment" element={<CommentForm />} />
-//           <Route path="create" element={<PostForm />} />
-//           <Route path="/logout" element={<LogoutForm />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </TokenProvider>
+//     <BrowserRouter>
+//       <nav id="main-menu">
+//         <h2>Instagrom</h2>
+//         <NavLink to="inicio">Inicio</NavLink>
+//         <NavLink to="perfil">Perfil</NavLink>
+//         <NavLink to="create">Crear</NavLink>
+//         <NavLink to="logout">Cerrar sesión</NavLink>
+//       </nav>
+//       <Routes>
+//         <Route path="/inicio" element={<App />} />
+//         <Route path="/perfil" element={<Perfil />} />
+//         <Route path="postlist" element={<PostList />} />
+//         <Route path="comment" element={<CommentForm />} />
+//         <Route path="create" element={<PostForm />} />
+//         <Route path="logout" element={<LogoutForm />} />
+//       </Routes>
+//     </BrowserRouter>
 //   </React.StrictMode>
 // );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

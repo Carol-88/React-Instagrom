@@ -44,7 +44,9 @@ function CommentForm() {
           type="text"
           placeholder="Escribe tu comentario.."
         ></input>
-        <button type="submit">Enviar</button>
+        <button className="sendComment" type="submit">
+          Enviar
+        </button>
       </form>
     </>
   );

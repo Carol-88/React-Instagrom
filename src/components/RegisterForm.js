@@ -35,10 +35,8 @@ function RegisterForm() {
     setPassword("");
   };
 
-  if (!token) {
+  if (token) {
     return <Navigate to="/login" />;
-  } else {
-    <Navigate to="/" />;
   }
 
   return (

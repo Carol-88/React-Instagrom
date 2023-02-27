@@ -34,8 +34,6 @@ function LoginForm() {
 
   if (token) {
     return <Navigate to="/inicio" />;
-  } else {
-    <Navigate to="/" />;
   }
 
   const handleChangePassword = (e) => {

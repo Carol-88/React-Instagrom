@@ -4,19 +4,20 @@ import CommentList from "./CommentList";
 import FooterIcons from "./FooterIcons";
 import UserName from "./UserName";
 
-function FooterPost({ location, caption, publication_Date }) {
+function FooterPost({ caption, publication_Date }) {
   const [showComents, setShowComents] = useState(false);
   return (
     <>
       <FooterIcons />
 
       <p>Número de likes</p>
-      <p> {location} </p>
+
       <p>
         <UserName /> {caption}
       </p>
       <p> {publication_Date}</p>
       <button
+        className="showComments"
         onClick={() => {
           setShowComents(!showComents);
         }}
@@ -25,7 +26,7 @@ function FooterPost({ location, caption, publication_Date }) {
       </button>
 
       {showComents && <CommentList />}
-      <p>
+      <p className="commentForm">
         <CommentForm />
       </p>
     </>

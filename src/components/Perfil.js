@@ -5,12 +5,17 @@ import PostList from "./PostList";
 import { TokenContext } from "..";
 import { Navigate } from "react-router-dom";
 
-const Perfil = ({ img, name }) => {
+const Perfil = (data) => {
   const [token] = useContext(TokenContext);
   const [loading, setLoading] = useState(true);
 
   //faltaría un estado para gestionar errores posibles (usar en el catch de abajo)
   const [userName, setUserName] = useState(null);
+  const [photos, setPhotos] = useState(null);
+
+  // const [name, setName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [birthday, setBirthday] = useState(null);
 
   useEffect(() => {
     async function loadUserProfile() {
@@ -21,8 +26,13 @@ const Perfil = ({ img, name }) => {
         );
         const { data } = await response.json();
 
-        console.log(data.data); //esto es lo que hay que renderizar
+        console.log("DATA", data); //esto es lo que hay que renderizar
+
         setUserName(data.username);
+        setPhotos(data.photos);
+        // setName(data.name);
+        // setLastName(data.lastName);
+        // setBirthday(data.birthday);
       } catch (error) {
         console.log("PENDIENTE GESTIONAR MEJOR ESTE ERROR");
       } finally {
@@ -41,9 +51,10 @@ const Perfil = ({ img, name }) => {
 
   return (
     <article class="user">
-      <Avatar img={img} name={name} />
+      <Avatar />
       <UserName name={userName} />
-      <PostList />
+      <p>{data.name}</p>
+      <PostList photos={photos} />
     </article>
   );
 };

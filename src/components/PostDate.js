@@ -1,9 +1,11 @@
 import React from "react";
 
-function PostDate() {
-  return <div>PostDate</div>;
+function PostDate({ publication_Date }) {
+  return (
+    <div>
+      <p> {publication_Date} </p>
+    </div>
+  );
 }
-
-// AQUÍ SE RECOGE EL PUBLICATION_DATE DE LA TABLA DE PHOTOS
 
 export default PostDate;
