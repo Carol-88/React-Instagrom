@@ -1,15 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Navigate, NavLink } from "react-router-dom";
 import { TokenContext } from "..";
-// import { useEffect } from "react";
 
 function LoginForm() {
-  ////// TEMPORAL, MIENTRAS NO HAY "LOGOUT" /////
-
-  //   useEffect(() => {
-  //     localStorage.clear();
-  //   }, []);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useContext(TokenContext);
@@ -42,7 +35,7 @@ function LoginForm() {
   if (token) {
     return <Navigate to="/inicio" />;
   } else {
-    <Navigate to="/login" />;
+    <Navigate to="/" />;
   }
 
   const handleChangePassword = (e) => {

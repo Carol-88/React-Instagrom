@@ -38,7 +38,7 @@ function RegisterForm() {
   if (!token) {
     return <Navigate to="/login" />;
   } else {
-    <Navigate to="/newUser" />;
+    <Navigate to="/" />;
   }
 
   return (
