@@ -9,13 +9,12 @@ const Perfil = (data) => {
   const [token] = useContext(TokenContext);
   const [loading, setLoading] = useState(true);
 
-  //faltaría un estado para gestionar errores posibles (usar en el catch de abajo)
   const [userName, setUserName] = useState(null);
   const [photos, setPhotos] = useState(null);
 
-  // const [name, setName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [birthday, setBirthday] = useState(null);
+  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [birthday, setBirthday] = useState(null);
 
   useEffect(() => {
     async function loadUserProfile() {
@@ -30,9 +29,9 @@ const Perfil = (data) => {
 
         setUserName(data.username);
         setPhotos(data.photos);
-        // setName(data.name);
-        // setLastName(data.lastName);
-        // setBirthday(data.birthday);
+        setName(data.name);
+        setLastName(data.lastname);
+        setBirthday(data.birthday);
       } catch (error) {
         console.log("PENDIENTE GESTIONAR MEJOR ESTE ERROR");
       } finally {
@@ -53,7 +52,11 @@ const Perfil = (data) => {
     <article class="user">
       <Avatar />
       <UserName name={userName} />
-      <p>{data.name}</p>
+      <p>
+        {name} {lastname}
+      </p>
+
+      <p>{birthday}</p>
       <PostList photos={photos} />
     </article>
   );
