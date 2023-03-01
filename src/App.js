@@ -19,8 +19,7 @@ function App() {
   };
 
   useEffect(() => {
-    const photosFromServer = getPhotos();
-    console.log("FOTOS SERVIDOR", photosFromServer);
+    getPhotos();
   }, []);
 
   return (

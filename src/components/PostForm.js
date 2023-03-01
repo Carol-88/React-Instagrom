@@ -1,61 +1,76 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TokenContext } from "..";
 import Avatar from "./Avatar";
 
-function PostForm({ name, caption, location }) {
-  const [newPost, setNewPost] = useState("");
+function PostForm() {
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const [token] = useContext(TokenContext);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      setLoading(true);
 
-    const addPost = {
-      photoname: { name },
-      caption: { caption },
-      location: { location },
-    };
+      e.preventDefault();
 
-    const serializedData = JSON.stringify(addPost);
-    const res = await fetch(`${process.env.REACT_APP_BACKEND}/addPhoto`, {
-      method: "POST",
-      body: serializedData,
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    });
+      const data = new FormData(e.target);
 
-    const responseBody = await res.json();
-    const textPost = responseBody;
-    setNewPost(textPost);
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}/addPhoto`, {
+        method: "POST",
+        body: data,
+        headers: {
+          Authorization: token,
+        },
+      });
+
+      if (!res.ok) {
+        const body = await res.json();
+
+        throw new Error(body.message);
+      }
+
+      navigate("/perfil");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
       <Avatar />
       <form onSubmit={handleSubmit}>
-        <label htmlFor="text-post"></label>
+        <label htmlFor="text-post">Texto</label>
         <input
           id="text-post"
-          onChange={(e) => setNewPost(e.target.value)}
+          name="caption"
           type="text"
           placeholder="Escribe.."
         ></input>
-        <label htmlFor="location"></label>
+        <label htmlFor="location">Localización</label>
         <input
           id="location"
-          onChange={(e) => setNewPost(e.target.value)}
+          name="location"
           type="text"
           placeholder="Localización"
         ></input>
-        <label htmlFor="photo-post">Subir archivo</label>
+        <label htmlFor="photo-post">Foto</label>
         <input
           type="file"
           id="photo-post"
+          name="photo"
           accept="image/png, image/jpg"
         ></input>
         <button type="submit">Enviar</button>
       </form>
+
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </>
   );
 }
