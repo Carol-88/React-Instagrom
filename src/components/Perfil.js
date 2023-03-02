@@ -4,10 +4,12 @@ import UserName from "./UserName";
 import PostList from "./PostList";
 import { TokenContext } from "..";
 import { Navigate } from "react-router-dom";
+import AvatarForm from "./AvatarForm";
 
 const Perfil = (data) => {
   const [token] = useContext(TokenContext);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [userName, setUserName] = useState(null);
   const [photos, setPhotos] = useState(null);
@@ -25,15 +27,13 @@ const Perfil = (data) => {
         );
         const { data } = await response.json();
 
-        console.log("DATA", data); //esto es lo que hay que renderizar
-
         setUserName(data.username);
         setPhotos(data.photos);
         setName(data.name);
         setLastName(data.lastname);
         setBirthday(data.birthday);
       } catch (error) {
-        console.log("PENDIENTE GESTIONAR MEJOR ESTE ERROR");
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -47,15 +47,15 @@ const Perfil = (data) => {
   }
 
   if (loading) return <p>Cargando...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <article class="user">
-      <Avatar />
+      <Avatar src={data.avatar} /> <AvatarForm />
       <UserName name={userName} />
       <p>
         {name} {lastname}
       </p>
-
       <p>{birthday}</p>
       <PostList photos={photos} />
     </article>

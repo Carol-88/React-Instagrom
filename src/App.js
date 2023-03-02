@@ -1,21 +1,20 @@
 import "./App.css";
 import PostList from "./components/PostList";
-// import Post from "./components/Post";
 import Avatar from "./components/Avatar";
 import Stories from "./components/Stories";
-// import UserName from "./components/UserName";
+import UserName from "./components/UserName";
 import { useEffect, useState } from "react";
 
-// import PostForm from "./components/PostForm";
-
-function App() {
+function App(data) {
   const [photos, setPhotos] = useState([]);
+  const [userName, setUserName] = useState(null);
 
   const getPhotos = async () => {
     const res = await fetch(`${process.env.REACT_APP_BACKEND}/photos`);
     const responseBody = await res.json();
     console.log("RESPONSE BODY", responseBody.data);
     setPhotos(responseBody.data);
+    setUserName(data.username);
   };
 
   useEffect(() => {
@@ -31,9 +30,8 @@ function App() {
         <PostList photos={photos} />
       </main>
       <footer>
-        <Avatar img="/stories/456328.png" />
-        {/* <UserName name={userName} />  */}
-        {/* HACER EL COMPONENTE USERNAME */}
+        <Avatar img={data.avatar} />
+        <UserName name={userName} />
         <p className="info">
           Información - Ayuda - Prensa - API - Empleo - Privacidad - Condiciones
           - Ubicaciones - Idioma
