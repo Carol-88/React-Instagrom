@@ -3,8 +3,9 @@ import { Navigate } from "react-router-dom";
 import { TokenContext } from "..";
 
 const Avatar = (data) => {
+  //Cargar aquí el avatar en el contexto
   const [token] = useContext(TokenContext);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [avatar, setAvatar] = useState(null);
 
@@ -19,7 +20,6 @@ const Avatar = (data) => {
 
         setAvatar(data.avatar);
       } catch (error) {
-        console.log("Algo ha fallado al subir el avatar");
         setError(error.message);
       } finally {
         setLoading(false);
@@ -35,7 +35,11 @@ const Avatar = (data) => {
 
   return (
     <>
-      <img className="avatar-img" src={avatar} alt={data.name} />
+      <img
+        className="avatar-img"
+        src={`${process.env.REACT_APP_BACKEND}/avatar/${avatar}`}
+        alt={data.name}
+      />
     </>
   );
 };

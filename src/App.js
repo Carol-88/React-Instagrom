@@ -3,16 +3,20 @@ import PostList from "./components/PostList";
 import Avatar from "./components/Avatar";
 import Stories from "./components/Stories";
 import UserName from "./components/UserName";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { TokenContext } from ".";
 
 function App(data) {
   const [photos, setPhotos] = useState([]);
   const [userName, setUserName] = useState(null);
+  const [token] = useContext(TokenContext);
 
   const getPhotos = async () => {
-    const res = await fetch(`${process.env.REACT_APP_BACKEND}/photos`);
+    const res = await fetch(`${process.env.REACT_APP_BACKEND}/photos`, {
+      headers: { authorization: token },
+    });
     const responseBody = await res.json();
-    console.log("RESPONSE BODY", responseBody.data);
+
     setPhotos(responseBody.data);
     setUserName(data.username);
   };

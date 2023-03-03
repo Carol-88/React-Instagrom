@@ -3,17 +3,26 @@ import FooterPost from "./FooterPost";
 import HeaderPost from "./HeaderPost";
 import ContentPost from "./ContentPost";
 
-function Post({ name, location, caption, publication_date }) {
+function Post({
+  photoName,
+  location,
+  caption,
+  publicationDate,
+  id,
+  idUser,
+  likes,
+  likedByLogguedUser,
+}) {
   return (
     <>
       <HeaderPost />
       <ContentPost
-        name={name}
+        photoName={photoName}
         location={location}
         caption={caption}
-        publication_date={publication_date}
+        publicationDate={publicationDate}
       />
-      <FooterPost />
+      <FooterPost likes={likes} likedByLogguedUser={likedByLogguedUser} />
     </>
   );
 }

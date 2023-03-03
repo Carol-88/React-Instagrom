@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-// import { useState } from "react";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 import Perfil from "./components/Perfil";
@@ -14,23 +13,16 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import PostForm from "./components/PostForm";
 import LogoutForm from "./components/LogoutForm";
 
-//Contexto de usuario logueado
 export const TokenContext = React.createContext();
 const TokenProvider = (props) => {
   const [token, setToken] = useLocalStorage("token");
-  if (token) {
-    return (
-      <TokenContext.Provider value={[token, setToken]}>
-        {props.children}
-      </TokenContext.Provider>
-    );
-  } else {
-    return (
-      <TokenContext.Provider value={[token, setToken]}>
-        {props.children}
-      </TokenContext.Provider>
-    );
-  }
+  ///Aquí se carga el usuario
+
+  return (
+    <TokenContext.Provider value={[token, setToken]}>
+      {props.children}
+    </TokenContext.Provider>
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -61,30 +53,5 @@ root.render(
     </TokenProvider>
   </React.StrictMode>
 );
-
-///////// Simulación de "Logout" ////////////
-
-// const rootTwo = ReactDOM.createRoot(document.getElementById("rootTwo"));
-// rootTwo.render(
-//   <React.StrictMode>
-//     <BrowserRouter>
-//       <nav id="main-menu">
-//         <h2>Instagrom</h2>
-//         <NavLink to="inicio">Inicio</NavLink>
-//         <NavLink to="perfil">Perfil</NavLink>
-//         <NavLink to="create">Crear</NavLink>
-//         <NavLink to="logout">Cerrar sesión</NavLink>
-//       </nav>
-//       <Routes>
-//         <Route path="/inicio" element={<App />} />
-//         <Route path="/perfil" element={<Perfil />} />
-//         <Route path="postlist" element={<PostList />} />
-//         <Route path="comment" element={<CommentForm />} />
-//         <Route path="create" element={<PostForm />} />
-//         <Route path="logout" element={<LogoutForm />} />
-//       </Routes>
-//     </BrowserRouter>
-//   </React.StrictMode>
-// );
 
 reportWebVitals();

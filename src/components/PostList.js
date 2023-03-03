@@ -7,9 +7,14 @@ const PostList = ({ photos }) => {
         return (
           <li key={photo.photoName}>
             <Post
-              name={photo.photoName}
+              photoName={photo.photoName}
               location={photo.location}
               caption={photo.caption}
+              publicationDate={photo.publication_date}
+              id={photo.id}
+              idUser={photo.idUser}
+              likes={photo.likes}
+              likedByLogguedUser={photo.likedByLogguedUser}
             />
           </li>
         );
