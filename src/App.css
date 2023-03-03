@@ -1,162 +1,282 @@
 /* VERSION WEB */
 @font-face {
-	font-family: instagram;
-	src: url(./fonts/instafont.ttf);
+  font-family: instagram;
+  src: url(./fonts/instafont.ttf);
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #root {
-	font-family: Arial, "Helvetica", sans-serif;
-	min-height: 100vh;
-	background-color: white;
-	display: grid;
-	grid-template-areas: "sidebar header footer" "sidebar main footer" "sidebar main footer";
-	grid-template-columns: 250px auto 400px;
-	grid-template-rows: 100px auto;
-	padding: 1rem;
-	gap: 1px;
+  font-family: Arial, "Helvetica", sans-serif;
+  min-height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-areas: "sidebar header footer" "sidebar main footer" "sidebar main footer";
+  grid-template-columns: 250px auto 400px;
+  grid-template-rows: 100px auto;
+  padding: 1rem;
+  gap: 1px;
 }
 
 header {
-	display: flex;
-	text-align: center;
-	padding-top: 2rem;
-	justify-content: end;
+  display: flex;
+  text-align: center;
+  padding-top: 2rem;
+  justify-content: end;
+}
+
+.allForm {
+  margin-left: auto;
+}
+
+.input {
+  height: 36px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  background-color: #645d5d1e;
+  width: 70%;
+  font-size: 12px;
+  margin: 0;
+  padding: 9px 0px 7px 8px;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+.pForm {
+  text-align: center;
+  padding: 10px 10px;
+  color: #645d5d;
+  font-size: 14px;
+}
+
+.blue {
+  color: rgba(20, 20, 144, 0.9);
+  padding-block: 0;
+  padding-bottom: 5px;
+}
+
+.spaceForm {
+  padding-bottom: 5px;
+}
+
+.formulario {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #dbdbdb;
+  background-color: #fafafa;
+  padding: 10px 5px;
+  margin: 5px 0;
+}
+
+.title {
+  font-family: "instagram";
+  font-size: 60px;
+}
+
+.buttonForm {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+  padding: 0 15%;
+  width: 95%;
+  background: #3897f0;
+  border: 1px solid #3897f0;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 14px;
+  height: 28px;
+  line-height: 26px;
+  outline: none;
+}
+
+.separation {
+  text-align: center;
+  color: #8e8e8e;
+  padding: 5px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.facebook {
+  cursor: pointer;
+  width: 100%;
+  padding: 0 8px;
+  background: #3897f0;
+  border: 1px solid #3897f0;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 14px;
+  height: 28px;
+  line-height: 26px;
+  outline: none;
+  white-space: nowrap;
+}
+
+.nav {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  margin: 10px 10px;
+  padding: 10px 10px;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+  margin: 15px;
+  color: #262626;
+  font-size: 14px;
+}
+
+.link {
+  text-align: center;
+  margin: 15px;
+  font-size: 14px;
+  color: #3897f0;
+  margin-left: 3px;
+  text-decoration: none;
 }
 
 #main-menu {
-	grid-area: sidebar;
-	border-right: 1px solid grey;
+  grid-area: sidebar;
+  border-right: 1px solid grey;
 }
 #main-menu a {
-	display: grid;
-	grid-template-rows: 50px;
-	padding-left: 1.5rem;
+  display: grid;
+  grid-template-rows: 50px;
+  padding-left: 1.5rem;
 }
 
 #main-menu h2 {
-	padding: 2rem;
-	text-align: center;
-	font-family: "instagram";
+  padding: 2rem;
+  text-align: center;
+  font-family: "instagram";
 }
 
 main {
-	display: flex;
-	text-align: center;
-	padding-top: 2rem;
-	justify-content: end;
+  display: flex;
+  text-align: center;
+  padding-top: 2rem;
+  justify-content: end;
 }
 
 ul {
-	width: 70%;
-	list-style-type: none;
-	align-items: center;
-	justify-content: end;
+  width: 70%;
+  list-style-type: none;
+  align-items: center;
+  justify-content: end;
 }
 
 footer {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 100px 1fr 1fr;
-	grid-template-areas: "avatar username" "info info" "insta-footer insta-footer";
-	text-align: center;
-	grid-area: footer;
-	padding-top: 2rem;
-	padding-left: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-template-areas: "avatar username" "info info" "insta-footer insta-footer";
+  text-align: center;
+  grid-area: footer;
+  padding-top: 2rem;
+  padding-left: 5rem;
 }
 
 footer img {
-	grid-area: avatar;
+  grid-area: avatar;
 }
 
 footer .username {
-	grid-area: username;
+  grid-area: username;
 }
 
 footer .info {
-	display: grid;
-	grid-area: info;
-	align-items: center;
+  display: grid;
+  grid-area: info;
+  align-items: center;
 }
 
 footer .insta-footer {
-	display: grid;
-	grid-area: insta-footer;
-	align-items: center;
+  display: grid;
+  grid-area: insta-footer;
+  align-items: center;
 }
 
 .icon {
-	height: 20px;
-	margin-top: 1rem;
+  height: 20px;
+  margin-top: 1rem;
 }
 
 .footer-icons {
-	display: flex;
-	gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 .footer-icons-img .icon {
-	margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .footer-icons-img {
-	width: 50%;
-	text-align: left;
-	margin-right: 1rem;
+  width: 50%;
+  text-align: left;
+  margin-right: 1rem;
 }
 
 .icon-last {
-	/* height: 20px; */
-	width: 50%;
-	text-align: right;
+  /* height: 20px; */
+  width: 50%;
+  text-align: right;
 }
 
 .avatar-img {
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	border: 1px solid black;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid black;
 }
 .stories {
-	display: flex;
-	width: 70%;
-	list-style-type: none;
-	align-items: center;
-	justify-content: space-between;
+  display: flex;
+  width: 70%;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .storie-img {
-	display: flex;
-	text-align: center;
-	width: 70px;
-	height: 70px;
-	/* border-radius: 50%; */
-	border: double 8px white;
-	border-radius: 50px;
-	background-image: linear-gradient(white, white),
-		linear-gradient(
-			to right,
-			gold,
-			rgb(255, 102, 0),
-			rgb(255, 72, 0),
-			rgb(249, 56, 169),
-			rgb(176, 6, 176)
-		);
-	background-origin: border-box;
-	background-clip: content-box, border-box;
+  display: flex;
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  /* border-radius: 50%; */
+  border: double 8px white;
+  border-radius: 50px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(
+      to right,
+      gold,
+      rgb(255, 102, 0),
+      rgb(255, 72, 0),
+      rgb(249, 56, 169),
+      rgb(176, 6, 176)
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 
-	/* border-image-radius: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1; */
+  /* border-image-radius: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1; */
 }
 
 .add-post {
-	border: 1px solid green;
+  border: 1px solid green;
 }
 
 .photo-post {
-	width: 400px;
-	height: 600px;
+  width: 400px;
+  height: 600px;
 }

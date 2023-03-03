@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { TokenContext } from "..";
 
 function RegisterForm() {
@@ -40,40 +40,84 @@ function RegisterForm() {
   }
 
   return (
-    <div style={{ border: "1px solid black" }}>
-      <h2 className="title-register">Registro de usuario</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="userform">Nombre de usuario: </label>
-        <input
-          id="userform"
-          onChange={(e) => setUsername(e.target.value)}
-          type="text"
-          placeholder="Escribe tu nombre de usuario"
-          value={username}
-          required={true}
-        ></input>
+    <div className="allForm">
+      <div className="formulario">
+        <h2 className="title">Instagrom</h2>
 
-        <label htmlFor="emailform">Email: </label>
-        <input
-          id="emailform"
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Escribe tu email"
-          value={email}
-          required={true}
-        ></input>
+        <p
+          className="pForm"
+          style={{
+            paddingBottom: "20px",
+            paddingTop: "20px",
+            fontSize: "20px",
+            alignContent: "center",
+          }}
+        >
+          Regístrate para ver fotos y videos de tus amigos.
+        </p>
 
-        <label htmlFor="password">Contraseña: </label>
-        <input
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          value={password}
-          required={true}
-        ></input>
+        <button className="buttonForm" type="submit">
+          Iniciar sesión con Facebook
+        </button>
 
-        <button type="submit">Enviar</button>
-      </form>
+        <p className="separation">______________ o ______________</p>
+
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="spaceForm">
+            <label htmlFor="userform"></label>
+            <input
+              className="input"
+              id="userform"
+              onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              placeholder="Nombre de usuario"
+              value={username}
+              required={true}
+            ></input>
+          </div>
+
+          <div className="spaceForm">
+            <label htmlFor="emailform"></label>
+            <input
+              className="input"
+              id="emailform"
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Correo eletrónico"
+              value={email}
+              required={true}
+            ></input>
+          </div>
+
+          <div className="spaceForm">
+            <label htmlFor="password"></label>
+            <input
+              className="input"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              required={true}
+            ></input>
+          </div>
+
+          <div className="allForm">
+            <button className="buttonForm" type="submit">
+              Siguiente
+            </button>
+          </div>
+
+          <div className="nav">
+            <p className="pForm">
+              ¿Tienes una cuenta?
+              <NavLink className="link" to="/login">
+                Inicia sesión
+              </NavLink>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

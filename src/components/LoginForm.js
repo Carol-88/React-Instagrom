@@ -41,33 +41,64 @@ function LoginForm() {
   };
 
   return (
-    <div style={{ border: "1px solid black" }}>
-      <h2>Login</h2>
+    <div className="allForm">
+      <div className="formulario">
+        <h2 className="title" style={{ paddingBottom: "50px" }}>
+          Instagrom
+        </h2>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="emailform">Email: </label>
-        <input
-          id="emailform"
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Escribe tu email"
-          value={email}
-          required={true}
-        ></input>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="spaceForm">
+            <label htmlFor="emailform"></label>
+            <input
+              className="input"
+              id="emailform"
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              required={true}
+            ></input>
+          </div>
 
-        <label htmlFor="password">Contraseña: </label>
-        <input
-          id="password"
-          onChange={handleChangePassword}
-          type="password"
-          value={password}
-          required={true}
-        ></input>
+          <div className="spaceForm">
+            <label htmlFor="password"></label>
+            <input
+              className="input"
+              id="password"
+              onChange={handleChangePassword}
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              required={true}
+            ></input>
+          </div>
 
-        <button type="submit">Enviar</button>
-      </form>
-      <p>
-        <NavLink to="/newUser">Regístrate</NavLink>
+          <div className="allForm">
+            <button className="buttonForm" type="submit">
+              Iniciar sesión
+            </button>
+          </div>
+
+          <p className="separation">______________ o ______________</p>
+
+          <p className="pForm blue">Iniciar sesión con Facebook</p>
+
+          <p className="pForm blue" style={{ fontSize: "11px" }}>
+            ¿Olvidaste tu contraseña?
+          </p>
+        </form>
+      </div>
+      <div className="formulario">
+        <p className="text">
+          ¿No tienes una cuenta?
+          <NavLink className="link" to="/newUser">
+            Regístrate
+          </NavLink>
+        </p>
+      </div>
+      <p style={{ textAlign: "center", width: "400px", fontSize: "14px" }}>
+        Descarga la app.
       </p>
     </div>
   );
