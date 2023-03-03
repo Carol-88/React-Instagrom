@@ -89,6 +89,7 @@ function LoginForm() {
           </p>
         </form>
       </div>
+
       <div className="formulario">
         <p className="text">
           ¿No tienes una cuenta?

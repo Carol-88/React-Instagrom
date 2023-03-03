@@ -107,16 +107,16 @@ function RegisterForm() {
               Siguiente
             </button>
           </div>
-
-          <div className="nav">
-            <p className="pForm">
-              ¿Tienes una cuenta?
-              <NavLink className="link" to="/login">
-                Inicia sesión
-              </NavLink>
-            </p>
-          </div>
         </form>
+      </div>
+
+      <div className="formulario">
+        <p className="text">
+          ¿Tienes una cuenta?
+          <NavLink className="link" to="/login">
+            Inicia sesión
+          </NavLink>
+        </p>
       </div>
     </div>
   );
