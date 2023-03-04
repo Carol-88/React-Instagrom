@@ -1,22 +1,22 @@
-import CommentForm from "./CommentForm";
-import CommentList from "./CommentList";
+// import CommentForm from "./CommentForm";
+// import CommentList from "./CommentList";
 import FooterIcons from "./FooterIcons";
 import UserName from "./UserName";
-import { useEffect, useContext, useState } from "react";
-import { TokenContext } from "..";
+// import { useEffect, useContext, useState } from "react";
+// import { TokenContext } from "..";
 
 function FooterPost({ likes, likedByLogguedUser }) {
-  const [token] = useContext(TokenContext);
-  const [showComents, setShowComents] = useState(false);
+	// const [token] = useContext(TokenContext);
+	// const [showComents, setShowComents] = useState(false);
 
-  return (
-    <>
-      <FooterIcons likedByLogguedUser={likedByLogguedUser} />
-      <p>{likes} Me gusta</p>
-      <p>
-        <UserName />
-      </p>
-      <button
+	return (
+		<>
+			<FooterIcons likedByLogguedUser={likedByLogguedUser} />
+			<p className="likes-footer">{likes} Me gusta</p>
+			{/* <p>
+				<UserName />
+			</p> */}
+			{/* <button
         className="showComments"
         onClick={() => {
           setShowComents(!showComents);
@@ -27,9 +27,9 @@ function FooterPost({ likes, likedByLogguedUser }) {
       {showComents && <CommentList />}
       <p className="commentForm">
         <CommentForm />
-      </p>
-    </>
-  );
+      </p> */}
+		</>
+	);
 }
 
 export default FooterPost;

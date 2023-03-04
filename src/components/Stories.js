@@ -9,8 +9,6 @@ function Stories() {
 		{ img: "/stories/456325.png" },
 		{ img: "/stories/456326.png" },
 		{ img: "/stories/456327.png" },
-		{ img: "/stories/456328.png" },
-		{ img: "/stories/456329.png" },
 	];
 
 	return (

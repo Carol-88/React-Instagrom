@@ -1,22 +1,22 @@
 // import React, { useEffect, useState } from "react";
 
 function ContentPost({ photoName, caption, location, publicationDate }) {
-  return (
-    <div style={{ border: "1px solid red" }}>
-      <figure>
-        <img
-          className="photo-post"
-          src={`${process.env.REACT_APP_BACKEND}/photos/${photoName}`}
-          alt={caption}
-        />
-      </figure>
-      <h2>{caption}</h2>
+	return (
+		<div className="post">
+			<figure>
+				<img
+					className="photo-post"
+					src={`${process.env.REACT_APP_BACKEND}/photos/${photoName}`}
+					alt={caption}
+				/>
+			</figure>
+			<h2 className="caption-post">{caption}</h2>
 
-      {location && <p>Ubicación:{location}</p>}
+			<p className="location-post">{location && <p>Ubicación:{location}</p>}</p>
 
-      <p>{new Date(publicationDate).toLocaleString()}</p>
-    </div>
-  );
+			<p>{new Date(publicationDate).toLocaleString()}</p>
+		</div>
+	);
 }
 
 export default ContentPost;
