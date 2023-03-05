@@ -2,7 +2,6 @@ import React from "react";
 import FooterPost from "./FooterPost";
 import HeaderPost from "./HeaderPost";
 import ContentPost from "./ContentPost";
-
 function Post({
 	photoName,
 	location,
@@ -12,6 +11,7 @@ function Post({
 	idUser,
 	likes,
 	likedByLogguedUser,
+	photo,
 }) {
 	return (
 		<div className="post-all">
@@ -22,9 +22,8 @@ function Post({
 				caption={caption}
 				publicationDate={publicationDate}
 			/>
-			<FooterPost likes={likes} likedByLogguedUser={likedByLogguedUser} />
+			<FooterPost likes={likes} photo={photo} />
 		</div>
 	);
 }
-
 export default Post;
