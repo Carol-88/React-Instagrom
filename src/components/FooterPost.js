@@ -11,7 +11,7 @@ function FooterPost({ likes, likedByLogguedUser, id, idUser, photo }) {
 		<>
 			<FooterIcons photo={photo} />
 			<p className="likes-footer">{likes} Me gusta</p>
-			<p>
+			{/* <p>
 				<UserName />
 			</p>
 			<button
@@ -25,7 +25,7 @@ function FooterPost({ likes, likedByLogguedUser, id, idUser, photo }) {
 			{showComents && <CommentList />}
 			<p className="commentForm">
 				<CommentForm />
-			</p>
+			</p> */}
 		</>
 	);
 }
