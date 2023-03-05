@@ -10,7 +10,9 @@ function LogoutForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">Cerrar sesión</button>
+      <button className="buttonForm publicate" type="submit">
+        Cerrar sesión
+      </button>
     </form>
   );
 }

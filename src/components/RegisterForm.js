@@ -5,6 +5,9 @@ import { TokenContext } from "..";
 function RegisterForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [name, setName] = useState("");
+  const [birthday, setBirthday] = useState(null);
   const [password, setPassword] = useState("");
   const [token, setToken] = useContext(TokenContext);
 
@@ -15,6 +18,9 @@ function RegisterForm() {
       username: username,
       email: email,
       password: password,
+      name: name,
+      lastname: lastname,
+      birthday: birthday,
     };
 
     const serializedData = JSON.stringify(registerUser);
@@ -31,6 +37,9 @@ function RegisterForm() {
     const token = responseBody.accessToken;
     setToken(token);
     setUsername("");
+    setName("");
+    setLastname("");
+    setBirthday();
     setEmail("");
     setPassword("");
   };
@@ -72,6 +81,45 @@ function RegisterForm() {
               type="text"
               placeholder="Nombre de usuario"
               value={username}
+              required={true}
+            ></input>
+          </div>
+
+          <div className="spaceForm">
+            <label htmlFor="userform"></label>
+            <input
+              className="input"
+              id="userform"
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              placeholder="Nombre"
+              value={name}
+              required={true}
+            ></input>
+          </div>
+
+          <div className="spaceForm">
+            <label htmlFor="userform"></label>
+            <input
+              className="input"
+              id="userform"
+              onChange={(e) => setLastname(e.target.value)}
+              type="text"
+              placeholder="Apellidos"
+              value={lastname}
+              required={true}
+            ></input>
+          </div>
+
+          <div className="spaceForm">
+            <label htmlFor="userform"></label>
+            <input
+              className="input"
+              id="userform"
+              onChange={(e) => setBirthday(e.target.value)}
+              type="date"
+              placeholder="Fecha de nacimiento"
+              value={birthday}
               required={true}
             ></input>
           </div>
