@@ -1,6 +1,6 @@
 # Instagrom - Proyecto final del bootcamp fullstack en HACKABOSS
 
-Carolina Romero Cotán
+Carolina Romero Cotán / 
 Marta Vázquez Goldar
 
 Versión 1.0.0 - 2022/2023
