@@ -1,34 +1,44 @@
-function FooterIcons({ photo }) {
-	///LAMAR AL BACK
-	const likePost = () => {
-		console.log("LIKE", photo.likes);
-		console.log("USERLIKER", photo.likedByLoggedUser);
-		photo.likes++;
-		photo.likedByLoggedUser = true;
-		console.log("LIKE", photo.likes);
-		console.log("USERLIKER", photo.likedByLoggedUser);
-	};
-	const unlikePost = () => {
-		console.log("LIKE", photo.likes);
-		console.log("USERLIKER", photo.likedByLoggedUser);
-		photo.likes--;
-		photo.likedByLoggedUser = false;
-		console.log("LIKE", photo.likes);
-		console.log("USERLIKER", photo.likedByLoggedUser);
-	};
+import { useContext } from "react";
+import { TokenContext } from "..";
+import { toast } from "react-toastify";
+
+function FooterIcons({ likedByLogguedUser, id, likePost, unlikePost }) {
+	const [token] = useContext(TokenContext);
 	return (
 		<div className="footer-icons">
 			<div className="footer-icons-img">
-				{!photo.likedByLogguedUser ? (
+				{!likedByLogguedUser ? (
 					<img
-						onClick={likePost}
+						onClick={async () => {
+							const res = await fetch(
+								`${process.env.REACT_APP_BACKEND}/favs/${id}/like`,
+								{ method: "POST", headers: { authorization: token } }
+							);
+							if (res.ok) {
+								likePost(id);
+							} else {
+								const body = await res.json();
+								toast.error(body.message);
+							}
+						}}
 						className="icon"
 						src="/icons/corazon.png"
 						alt="like"
 					/>
 				) : (
 					<img
-						onClick={unlikePost}
+						onClick={async () => {
+							const res = await fetch(
+								`${process.env.REACT_APP_BACKEND}/favs/${id}/unlike`,
+								{ method: "DELETE", headers: { authorization: token } }
+							);
+							if (res.ok) {
+								unlikePost(id);
+							} else {
+								const body = await res.json();
+								toast.error(body.message);
+							}
+						}}
 						className="icon"
 						src="/icons/red-heart-icon.webp"
 						alt="liked"

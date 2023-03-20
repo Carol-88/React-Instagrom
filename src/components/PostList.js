@@ -1,5 +1,5 @@
 import Post from "./Post";
-const PostList = ({ photos }) => {
+const PostList = ({ photos, likePost, unlikePost }) => {
 	return (
 		<ul className="postList">
 			{photos?.map((photo) => {
@@ -14,7 +14,8 @@ const PostList = ({ photos }) => {
 							idUser={photo.idUser}
 							likes={photo.likes}
 							likedByLogguedUser={photo.likedByLogguedUser}
-							photo={photo}
+							likePost={likePost}
+							unlikePost={unlikePost}
 						/>
 					</li>
 				);

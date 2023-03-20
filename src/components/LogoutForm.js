@@ -2,19 +2,19 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 function LogoutForm() {
-  const handleSubmit = async (e) => {
-    localStorage.clear();
-  };
+	const handleSubmit = async (e) => {
+		localStorage.clear();
+	};
 
-  <Navigate to="/login" />;
+	<Navigate to="/login" />;
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <button className="buttonForm publicate" type="submit">
-        Cerrar sesión
-      </button>
-    </form>
-  );
+	return (
+		<form onSubmit={handleSubmit}>
+			<button className="buttonForm logoutbtn" type="submit">
+				Cerrar sesión
+			</button>
+		</form>
+	);
 }
 
 export default LogoutForm;

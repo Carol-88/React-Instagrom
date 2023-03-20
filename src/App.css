@@ -22,7 +22,7 @@
 	background-color: white;
 	display: grid;
 	grid-template-areas: "sidebar header footer" "sidebar main footer" "sidebar main footer";
-	grid-template-columns: 250px auto 400px;
+	grid-template-columns: 250px auto 250px;
 	grid-template-rows: 100px auto;
 	padding: 1rem;
 	gap: 1px;
@@ -144,6 +144,13 @@ ul {
 	margin: auto;
 }
 
+.logoutbtn {
+	padding: 0.5rem 1.5rem;
+	width: 100%;
+	height: auto;
+	line-height: normal;
+}
+
 .separation {
 	text-align: center;
 	color: #8e8e8e;
@@ -174,7 +181,8 @@ ul {
 	background: #fff;
 	border: 0 1px 0 0 solid #e6e6e6;
 	border-radius: 1px;
-	margin: 10px 10px;
+	margin: 10px;
+	margin-right: 0;
 	padding: 10px 10px;
 	align-items: center;
 	text-decoration: none;
@@ -214,7 +222,6 @@ footer {
 	text-align: center;
 	grid-area: footer;
 	padding-top: 2rem;
-	padding-left: 5rem;
 }
 
 .footerApp {
@@ -324,8 +331,9 @@ footer .insta-footer {
 }
 
 .photo-post {
-	width: 400px;
-	height: 600px;
+	max-width: 400px;
+	/* height: 600px;
+	object-fit: contain; */
 }
 
 .likes-footer {
@@ -335,11 +343,10 @@ footer .insta-footer {
 }
 
 .post-all {
-	width: 500px;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	padding: 10px 5px;
+	padding: 2rem;
 	margin: 5px 0;
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
 		rgba(17, 17, 26, 0.05) 0px 8px 32px;
@@ -373,7 +380,7 @@ footer .insta-footer {
 }
 
 .profile {
-	text-align: end;
+	text-align: center;
 	font-family: "instagram";
 	font-size: 24px;
 	padding-bottom: 1rem;
@@ -386,4 +393,11 @@ footer .insta-footer {
 .postlist-perfil {
 	display: flex;
 	justify-content: center;
+}
+
+.postList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
 }
