@@ -33,6 +33,8 @@ header {
 	text-align: center;
 	padding-top: 2rem;
 	justify-content: center;
+	font-family: "instagram";
+	font-size: 25px;
 }
 
 .title {
@@ -230,14 +232,6 @@ footer {
 	padding-bottom: 1.5rem;
 }
 
-footer img {
-	grid-area: avatar;
-}
-
-footer .username {
-	grid-area: username;
-}
-
 footer .info {
 	grid-area: info;
 	color: #645d5d58;
@@ -397,4 +391,18 @@ footer .insta-footer {
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem;
+}
+
+/* SEARCH */
+
+#Buscador {
+	background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png)
+		no-repeat 0px 5px;
+	background-size: 24px;
+	width: 100%;
+	border: transparent;
+	border-bottom: solid 1px #ccc;
+	padding: 10px 10px 10px 30px;
+	outline: none;
+	margin: 10px;
 }

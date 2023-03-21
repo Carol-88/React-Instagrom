@@ -4,6 +4,7 @@ import UserName from "./UserName";
 import PostList from "./PostList";
 import { TokenContext } from "..";
 import { Navigate } from "react-router-dom";
+import FooterApp from "./FooterApp";
 // import AvatarForm from "./AvatarForm";
 
 const Perfil = (data) => {
@@ -50,22 +51,27 @@ const Perfil = (data) => {
 	if (error) return <p>{error}</p>;
 
 	return (
-		<article class="user">
-			{/* <Avatar src={data.avatar} /> <AvatarForm /> */}
-			{/* <h2 className="username">
+		<>
+			<article class="user">
+				{/* <Avatar src={data.avatar} /> <AvatarForm /> */}
+				{/* <h2 className="username">
         <UserName name={username} />
       </h2> */}
-			<div className="profile">
-				<p>
-					{name} {lastname}
-					{/* <p className="birthday">* {birthday} *</p> */}
+				<p className="profile">
+					<p>
+						{name} {lastname}
+						{/* <p className="birthday">* {birthday} *</p> */}
+					</p>
 				</p>
-			</div>
 
-			<div className="postlist-perfil">
-				<PostList photos={photos} />
-			</div>
-		</article>
+				<p className="postlist-perfil">
+					<PostList photos={photos} />
+				</p>
+			</article>
+			<footer>
+				<FooterApp />
+			</footer>
+		</>
 	);
 };
 
