@@ -1,7 +1,7 @@
 import "./App.css";
 import PostList from "./components/PostList";
 import UserName from "./components/UserName";
-import LogoutForm from "./components/LogoutForm";
+import Logout from "./components/Logout";
 import { usePosts } from "./hooks/usePosts";
 
 function App(data) {
@@ -24,7 +24,7 @@ function App(data) {
 					</p>
 
 					<p className="logout spaceFooter">
-						<LogoutForm />
+						<Logout />
 					</p>
 
 					<p className="info spaceFooter">

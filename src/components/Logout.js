@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-function LogoutForm() {
+function Logout() {
 	const handleSubmit = async (e) => {
 		localStorage.clear();
 	};
@@ -17,4 +17,4 @@ function LogoutForm() {
 	);
 }
 
-export default LogoutForm;
+export default Logout;

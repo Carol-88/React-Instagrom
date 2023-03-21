@@ -70,6 +70,7 @@ root.render(
 					</NavLink>
 				</nav>
 				<Routes>
+					<Route path="/" element={<App />} />
 					<Route path="/inicio" element={<App />} />
 					<Route path="/newUser" element={<RegisterForm />} />
 					<Route path="/login" element={<LoginForm />} />
