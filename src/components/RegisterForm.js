@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { TokenContext } from "..";
 
 function RegisterForm() {
@@ -10,6 +11,8 @@ function RegisterForm() {
   const [birthday, setBirthday] = useState(null);
   const [password, setPassword] = useState("");
   const [token, setToken] = useContext(TokenContext);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,14 +37,18 @@ function RegisterForm() {
     });
 
     const responseBody = await res.json();
-    const token = responseBody.accessToken;
-    setToken(token);
+    if (!res.ok) {
+      toast.error(responseBody.message);
+      return;
+    }
+
     setUsername("");
     setName("");
     setLastname("");
     setBirthday();
     setEmail("");
     setPassword("");
+    navigate("/login");
   };
 
   if (token) {

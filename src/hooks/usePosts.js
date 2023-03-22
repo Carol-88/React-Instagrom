@@ -1,41 +1,47 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useState } from "react";
 import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { TokenContext } from "..";
 export const usePosts = () => {
-	const [token] = useContext(TokenContext);
-	/* Estado */
-	const [posts, setPosts] = useState([]);
+  const [token] = useContext(TokenContext);
+  /* Estado */
+  const [posts, setPosts] = useState([]);
 
-	const likePost = (id) => {
-		const post = posts.find((post) => {
-			return post.id === id;
-		});
-		post.likes++;
-		post.likedByLogguedUser = true;
-		setPosts([...posts]);
-	};
-	const unlikePost = (id) => {
-		const post = posts.find((post) => {
-			return post.id === id;
-		});
-		post.likes--;
-		post.likedByLogguedUser = false;
-		setPosts([...posts]);
-	};
+  const [searchParams] = useSearchParams();
 
-	const getPhotos = async () => {
-		const res = await fetch(`${process.env.REACT_APP_BACKEND}/photos`, {
-			headers: { authorization: token },
-		});
-		const responseBody = await res.json();
+  const likePost = (id) => {
+    const post = posts.find((post) => {
+      return post.id === id;
+    });
+    post.likes++;
+    post.likedByLogguedUser = true;
+    setPosts([...posts]);
+  };
+  const unlikePost = (id) => {
+    const post = posts.find((post) => {
+      return post.id === id;
+    });
+    post.likes--;
+    post.likedByLogguedUser = false;
+    setPosts([...posts]);
+  };
 
-		setPosts(responseBody.data);
-	};
+  const getPhotos = async () => {
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND}/photos?${searchParams.toString()}`,
+      {
+        headers: { authorization: token },
+      }
+    );
+    const responseBody = await res.json();
 
-	useEffect(() => {
-		getPhotos();
-	}, []);
+    setPosts(responseBody.data);
+  };
 
-	return { posts, likePost, unlikePost };
+  useEffect(() => {
+    getPhotos();
+  }, [searchParams]);
+
+  return { posts, likePost, unlikePost };
 };
